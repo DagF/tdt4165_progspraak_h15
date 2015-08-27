@@ -1,0 +1,21 @@
+declare
+fun {Length Xs}
+   case Xs of Head|Tail then
+      1 + {Length Tail}
+   else
+      0
+   end
+end
+
+{Browse {Length [ 1 2 3]}}
+
+declare
+fun {Take Xs N}
+   if {Length Xs} >= N then
+      Xs
+   else if N > 0 then
+      {Append [Xs.1] {Take Xs.2 N} Zs}
+   else
+      []
+   end
+end
